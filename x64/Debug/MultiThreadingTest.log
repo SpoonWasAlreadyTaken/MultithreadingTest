@@ -1,0 +1,4 @@
+﻿  MultiThreadingTest.cpp
+C:\Users\PREDATOR\source\repos\MultiThreadingTest\MultiThreadingTest\MultiThreadingTest.cpp(85,17): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\PREDATOR\source\repos\MultiThreadingTest\MultiThreadingTest\MultiThreadingTest.cpp(98,31): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
+  MultiThreadingTest.vcxproj -> C:\Users\PREDATOR\source\repos\MultiThreadingTest\x64\Debug\MultiThreadingTest.exe
