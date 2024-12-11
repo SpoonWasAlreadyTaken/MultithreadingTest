@@ -4,15 +4,57 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <future>
+#include <queue>
 
 using namespace std;
 
+
+
+class ThreadPool
+{
+	atomic_bool workDone;
+	queue<function<void()>> workQueue;
+	vector<thread> workerThreads;
+
+	ThreadPool(size_t threadCount = thread::hardware_concurrency())
+	{
+		workerThreads.reserve(threadCount);
+		for (int i = 0; i < threadCount; i++)
+		{
+			workerThreads.emplace_back(this);
+		}
+	}
+
+
+private:
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+// variables
 int* diceArray = NULL;
 bool multithread = false;
 
+int threadCount = 4;
+vector<thread> workerThreads;
+
+
+// functions
 int NumberGenerator(int min, int max);
 string RollDice(long long int count);
 void GenerateArray(int start, int size);
+
 
 int main()
 {
@@ -80,28 +122,8 @@ string RollDice(long long int count)
 	}
 	else
 	{
-		int split = 0;
-		int total = 0;
-		split = count / 5;
-		thread th1(GenerateArray, total, split);
-		total += split;
-		thread th2(GenerateArray, total, split);
-		total += split;
-		thread th3(GenerateArray, total, split);
-		total += split;
-		thread th4(GenerateArray, total, split);
-		total += split;
-		thread th5(GenerateArray, total, split);
-		total += split;
-		if (total < count)
-		{
-			GenerateArray(total, count - total);
-		}
-		th1.join();
-		th2.join();
-		th3.join();
-		th4.join();
-		th5.join();
+
+
 
 		/*for (int i = 0; i < count; i++)
 		{
